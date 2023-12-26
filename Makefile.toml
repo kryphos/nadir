@@ -1,0 +1,26 @@
+[tasks.default]
+alias = "run"
+
+[tasks.run-wasm]
+command = "cargo"
+args = ["run", "--target", "wasm32-unknown-unknown"]
+
+[tasks.watch]
+command = "cargo"
+args = ["run"]
+watch = { exclude = ["assets/*"] }
+
+[tasks.build-linux]
+command = "cargo"
+args = ["build", "--release", "--target", "x86_64-unknown-linux-gnu"]
+
+[tasks.build-windows]
+command = "cargo"
+args = ["build", "--release", "--target", "x86_64-pc-windows-gnu"]
+
+[tasks.build-web]
+command = "cargo"
+args = ["build", "--release", "--target", "wasm32-unknown-unknown"]
+
+[tasks.build]
+dependencies = ["build-linux", "build-windows", "build-web"]
