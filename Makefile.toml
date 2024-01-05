@@ -1,6 +1,10 @@
 [tasks.default]
 alias = "run"
 
+[tasks.run]
+command = "cargo"
+args = ["run"]
+
 [tasks.run-wasm]
 command = "cargo"
 args = ["run", "--target", "wasm32-unknown-unknown"]
